@@ -4,13 +4,13 @@ import subprocess
 
 
 def echo_response(message):
-    if message['text'] == "!":
+    if message['text'] == "msg":
         subprocess.call(['run.cmd'])
         ReplyToActivity(fill=message,
-                        text=message["text"] + "1").send()
+                        text="Message Sent Successfully").send()
 
 
-def cat(message):
-    if message['text'] == ".cat":
+def help(message):
+    if message['text'] == "help":
         ReplyToActivity(fill=message,
-                        text="meow").send()
+                        text="RTFM").send()
