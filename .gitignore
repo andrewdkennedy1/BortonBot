@@ -134,3 +134,4 @@ node_modules
 ssl
 win-acme.v2.2.4.1500.x64.pluggable
 .env
+fail
