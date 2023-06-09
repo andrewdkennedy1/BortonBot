@@ -1,0 +1,1 @@
+reg import "C:\dell\ShadowURLHandler.reg"

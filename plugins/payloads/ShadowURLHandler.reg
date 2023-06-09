@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\shadow]
+@="URL:Shadow Session"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\shadow\shell]
+
+[HKEY_CLASSES_ROOT\shadow\shell\open]
+
+[HKEY_CLASSES_ROOT\shadow\shell\open\command]
+@="powershell.exe -NoProfile -Command \"& {$url=[uri]::new('%1'); $hostname=$url.Host; $sessionID=$url.Segments[1]; Start-Process 'C:\\Windows\\System32\\mstsc.exe' -ArgumentList ('/v:'+$hostname, '/shadow:'+$sessionID, '/admin', '/noConsentPrompt', '/control') }\""
+
+[HKEY_CLASSES_ROOT\shadow\moop]
+@="121"

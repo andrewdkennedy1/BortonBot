@@ -1,0 +1,297 @@
+[
+  {
+    "name": "ping",
+    "description": "Checks the status of a remote host",
+    "alt_description": [
+      "How can I test if a server is reachable?",
+      "What's the command to verify network connection to a host?",
+      "Is there a way to check if a remote server is online?",
+      "What's the equivalent of ping in Windows command prompt?"
+    ],
+    "examples": [
+      "ping 192.168.0.1"
+    ]
+  },
+  {
+    "name": "uptime",
+    "description": "Retrieves the uptime of a remote host",
+    "alt_description": [
+      "How can I find out how long a server has been running?",
+      "What's the command to check the duration a system has been up?",
+      "Is there a way to determine the uptime of a Linux server?",
+      "What's the equivalent of uptime in Windows command prompt?"
+    ],
+    "examples": [
+      "uptime fps.bmain.bsf"
+    ]
+  },
+  {
+    "name": "ticket",
+    "description": "Fetches ticket information from Spiceworks",
+    "alt_description": [
+      "How can I fetch ticket details from SpiceWorks?",
+      "What's the command to get information about a specific ticket?",
+      "Is there a way to retrieve ticket data using the ticket ID?",
+      "What's the equivalent of the ticket command in other IT service management tools?"
+    ],
+    "examples": [
+      "ticket #1234"
+    ]
+  },
+  {
+    "name": "shadow",
+    "description": "Allows remote control of another PC",
+    "alt_description": [
+      "How can I remotely control another PC?",
+      "What's the command to shadow a user's session?",
+      "Is there a way to access and control a remote computer from the command line?",
+      "What's the equivalent of the shadow command in remote desktop software?"
+    ],
+    "examples": [
+      "shadow PC1"
+    ]
+  },
+  {
+    "name": "kick",
+    "description": "Lists sessions and terminates a session",
+    "alt_description": [
+      "How can I terminate a session on a PC?",
+      "What's the command to list and end sessions on a system?",
+      "Is there a way to force log off a user from the command line?",
+      "What's the equivalent of the kick command in remote administration tools?"
+    ],
+    "examples": [
+      "kick fps"
+    ]
+  },
+  {
+    "name": "who",
+    "description": "Fetches Active Directory information about a user",
+    "alt_description": [
+      "How can I get Active Directory details for a user?",
+      "What's the command to fetch user information from AD?",
+      "Is there a way to quickly access user information in Active Directory?",
+      "What's the equivalent of the who command in other directory services?"
+    ],
+    "examples": [
+      "who melinda"
+    ]
+  },
+  {
+    "name": "spooler",
+    "description": "Manages the Print Spooler service on a remote computer",
+    "alt_description": [
+      "How can I manage the Print Spooler service on a remote PC?",
+      "What's the command to start, stop, or restart the Print Spooler service?",
+      "Is there a way to control the printing service remotely using a command?",
+      "What's the equivalent of the spooler command in Windows PowerShell?"
+    ],
+    "examples": [
+      "spooler PC1 start"
+    ]
+  },
+  {
+    "name": "librenms",
+    "description": "Lists devices and their status in LibreNMS",
+    "alt_description": [
+      "How can I list devices and their status in a specific group in LibreNMS?",
+      "What's the command to get device status in a LibreNMS group?",
+      "Is there a way to view the status of devices in a particular LibreNMS group?",
+      "What's the equivalent of the librenms command in other network monitoring tools?"
+    ],
+    "examples": [
+      "librenms group cradlepoints"
+    ]
+  },
+  {
+    "name": "alias",
+    "description": "Manages aliases for other commands",
+    "alt_description": [
+      "How can I create a shortcut for a command?",
+      "What's the command to add, remove, or list command aliases?",
+      "Is there a way to customize command shortcuts in the terminal?",
+      "What's the equivalent of the alias command in Windows PowerShell?"
+    ],
+    "examples": [
+      "alias add ll ls -l"
+    ]
+  },
+  {
+    "name": "echo",
+    "description": "Echoes a message",
+    "alt_description": [
+      "How can I make the bot repeat a message back to me?",
+      "What's the command to echo a message?",
+      "Is there a way to display a custom message on the screen using a command?",
+      "What's the equivalent of the echo command in programming languages like Python or JavaScript?"
+    ],
+    "examples": [
+      "echo Hello, world!"
+    ]
+  },
+  {
+    "name": "librenms findport",
+    "description": "Finds the switch port of a device in LibreNMS",
+    "alt_description": [
+      "How can I find which switch port a device is connected to in LibreNMS?",
+      "What's the command to locate a device's port in LibreNMS?",
+      "Is there a way to determine the network switch port of a specific device in LibreNMS?",
+      "librenms findport command in other network monitoring tools?"
+    ],
+    "examples": [
+      "librenms findport 192.168.0.1"
+    ]
+  },
+  {
+    "name": "anydesk",
+    "description": "Retrieves information and performs actions related to AnyDesk remote desktop software",
+    "alt_description": [
+      "How can I get information about AnyDesk on a remote computer?",
+      "What's the command to retrieve AnyDesk details for a specific PC?",
+      "Is there a way to check the status of AnyDesk on a remote machine?",
+      "What actions can I perform with the AnyDesk command?"
+    ],
+    "examples": [
+      "anydesk PC1 get-id"
+    ]
+  },
+  {
+    "name": "setup",
+    "description": "Sets up a PC with various sub-functions",
+    "alt_description": [
+      "How can send anydesk package to a pc?",
+      "What's the command to install anydesk to a device?",
+      "howto setup a pc?",
+      "how do i install anydesk?"
+    ],
+    "examples": [
+      "setup boff2-pc-byron anydesk"
+    ]
+  },
+  {
+    "name": "exo whitelist get",
+    "description": "Fetches transport rules for whitelisted domains from Exchange Online",
+    "alt_description": [
+      "How can I fetch the transport rules for whitelisted domains from Exchange Online?",
+      "What's the command to get the list of whitelisted domains in Exchange Online transport rules?",
+      "Is there a way to retrieve the transport rules for whitelisted domains using PowerShell?",
+      "What parameters are required to fetch the transport rules for whitelisted domains?"
+    ],
+    "examples": [
+      "exo whitelist get"
+    ]
+  },
+  {
+    "name": "exo whitelist add",
+    "description": "Adds new domains to the whitelist in Exchange Online transport rules",
+    "alt_description": [
+      "How can I add new domains to the whitelist in Exchange Online transport rules?",
+      "What's the command to include additional domains in the whitelist?",
+      "Is there a way to update the transport rules to allow more domains in Exchange Online?",
+      "What parameters are required to add new domains to the whitelist?"
+    ],
+    "examples": [
+      "exo whitelist add example.com"
+    ]
+  },
+  {
+    "name": "ticket",
+    "description": "Fetches ticket information from Spiceworks",
+    "alt_description": [
+      "How can I fetch ticket details from Spiceworks using BortonBot?",
+      "What's the general approach to retrieving ticket information from Spiceworks programmatically?",
+      "Is there a common method for accessing ticket data from Spiceworks using BortonBot?",
+      "How do I use BortonBot to retrieve ticket details from Spiceworks?",
+      "Can you provide an abstract example of fetching ticket information from Spiceworks using BortonBot?"
+    ],
+    "examples": [
+      "ticket #1234"
+    ]
+  },
+  {
+    "name": "nslookup",
+    "description": "Performs an nslookup",
+    "alt_description": [
+      "How can I use BortonBot to perform an nslookup?",
+      "What's the general method for executing nslookup using BortonBot?",
+      "Is there a common approach to perform DNS lookups using BortonBot?",
+      "How do I execute an nslookup command using BortonBot?",
+      "Can you provide an abstract example of performing an nslookup using BortonBot?"
+    ],
+    "example": "To perform an nslookup using BortonBot, you can send a message in the following format: 'nslookup <hostname> <optional-dns-server>'.",
+    "examples": [
+      "nslookup example.com"
+    ]
+  },
+  {
+    "name": "ask",
+    "description": "Performs command lookups based on user messages",
+    "alt_description": [
+      "How can I make BortonBot look up commands based on user messages?",
+      "Is there a way to train BortonBot to recognize commands?",
+      "What's the process for retrieving command details with BortonBot?",
+      "How does BortonBot use natural language processing to identify commands?",
+      "Can you provide an abstract example of BortonBot performing a command lookup?"
+    ],
+    "example": "To perform a command lookup using BortonBot, you can send a message in the following format: 'ask <message>'.",
+    "examples": [
+      "ask How do I restart a service?"
+    ]
+  },
+
+  {
+    "name": "get screens",
+    "description": "Fetches screen information for a specified PC",
+    "alt_description": [
+    "How can I retrieve screen information for a PC using BortonBot?",
+    "What's the command to fetch monitor details for a specific PC?",
+    "Is there a way to get the monitor names of a remote computer?",
+    "What's the equivalent of the getScreenInfo command in other PowerShell scripts?"
+    ],
+    "examples": [
+    "get PC1 screeninfo"
+    ]
+    },
+    {
+    "name": "get info",
+    "description": "Fetches Active Directory computer information for a specified PC",
+    "alt_description": [
+    "How can I retrieve Active Directory computer information for a PC using BortonBot?",
+    "What's the command to get computer details from Active Directory for a specific PC?",
+    "Is there a way to fetch the description of a computer in Active Directory?",
+    "What's the equivalent of the getADComputerInfo command in other PowerShell scripts?"
+    ],
+    "examples": [
+    "get PC1 info "
+    ]
+    },{
+      "name": "get mac",
+      "description": "Fetches the MAC address for a specified IP or hostname",
+      "alt_description": [
+        "How can I retrieve the MAC address for a device using BortonBot?",
+        "What's the command to get the MAC address of a remote device?",
+        "Is there a way to fetch the MAC address using the getMac command?",
+        "What's the equivalent of the getMac command in other scripts?"
+      ],
+      "examples": [
+        "get 192.168.0.100 mac",
+        "get device.example.com mac"
+      ]
+    },
+
+
+  {
+    "name": "pp",
+    "description": "Retrieves the IP address of a printer from the print server",
+    "alt_description": [
+      "How can I get a printer's IP address from the print server?",
+      "i want to look up printer information",
+      "What's the command to find a printer's IP address?",
+      "Is there a way to retrieve the network address of a printer connected to the print server?",
+      "What's the equivalent of the pp command in Windows command prompt?"
+    ],
+    "examples": [
+      "pp bmp-exec"
+    ]
+  }
+]
