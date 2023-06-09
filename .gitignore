@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#custom
+node_modules
+ssl
+win-acme.v2.2.4.1500.x64.pluggable
+.env
