@@ -71,9 +71,9 @@ function createSessionListCard(pc, sessions, state, context) {
           text: "IP Address",
           weight: "bolder",
         },
-        ...activeSessions.map(({ clientAddress }) => ({
+        ...activeSessions.map(({ ipAddress }) => ({
           type: "TextBlock",
-          text: clientAddress,
+          text: ipAddress || "",
         })),
         ...disconnectedSessions.map(() => ({
           type: "TextBlock",

@@ -69,43 +69,50 @@ async function getUserSessions(pc) {
 
     console.log(`Parsed query sessions: ${JSON.stringify(querySessions, null, 2)}`);
 
-    const ipCommand = `
-      Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'; ID=1149; StartTime=(Get-Date).AddDays(-7);} |
-        ForEach-Object {[PSCustomObject] @{IPAddress=$_.Properties[2].Value; TimeCreated=$_.TimeCreated;}}
-    `;
-    console.log(`Executing PowerShell command: ${ipCommand}`);
+    const ipCommand = `Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'; ID=1149; StartTime=(Get-Date).AddDays(-7);}` +
+    ` | ForEach-Object {
+          $userName = $_.Properties[0].Value
+          $ipAddressValue = $_.Properties[2].Value
+  
+          if (-not [string]::IsNullOrEmpty($userName) -and -not [string]::IsNullOrEmpty($ipAddressValue)) {
+              [PSCustomObject]@{
+                  Name = $userName
+                  IPAddress = $ipAddressValue
+                  TimeCreated = $_.TimeCreated
+              }
+          }
+      } | Sort-Object -Property IPAddress, SessionID -Unique | ConvertTo-Json -Compress`;
+  
+    console.log(`Executing PowerShell command on ${pc}: ${ipCommand}`);
 
-    const ipOutput = await executePowerShellCommand(ipCommand);
+    const ipOutput = await executePowerShellCommand(`Invoke-Command -ComputerName ${pc} -ScriptBlock { ${ipCommand} }`);
     console.log(`IP output:\n${ipOutput}`);
 
-    const ipSessions = ipOutput
-      .split("\n")
-      .slice(1)
-      .map((line) => line.trim().split(/\s+/))
-      .map(([ipAddress, timeCreated]) => ({
-        ipAddress,
-        timeCreated,
-      }));
+    const ipSessions = JSON.parse(ipOutput);
 
     console.log(`Parsed IP sessions: ${JSON.stringify(ipSessions, null, 2)}`);
 
-    // Join the sessions based on the session ID or any other identifier you have
     const sessions = querySessions.map((querySession) => {
       const matchingIPSession = ipSessions.find((ipSession) => {
-        // Replace 'sessionId' with the appropriate identifier if needed
-        return querySession.sessionId === ipSession.sessionId;
+        return querySession.username.toLowerCase() === ipSession.Name.toLowerCase();
       });
-
+  
       if (matchingIPSession) {
         return {
-          ...querySession,
-          ipAddress: matchingIPSession.ipAddress,
-          timeCreated: matchingIPSession.timeCreated,
+          username: matchingIPSession.Name,
+          sessionName: querySession.sessionName,
+          sessionId: querySession.sessionId,
+          state: querySession.state,
+          ipAddress: matchingIPSession.IPAddress,
+          timeCreated: matchingIPSession.TimeCreated,
         };
-      } else {
-        return querySession;
       }
+  
+      return querySession;
     });
+    
+
+
 
     console.log(`Final sessions: ${JSON.stringify(sessions, null, 2)}`);
     return sessions;
