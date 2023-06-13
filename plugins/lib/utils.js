@@ -43,6 +43,7 @@ async function executePowerShellScript(scriptPath, params) {
   return await executePowerShellCommand(command);
 }
 
+
 async function getUserSessions(pc) {
   const queryCommand = `query user /server:${pc}`;
   console.log(`Executing PowerShell command: ${queryCommand}`);
@@ -69,59 +70,14 @@ async function getUserSessions(pc) {
 
     console.log(`Parsed query sessions: ${JSON.stringify(querySessions, null, 2)}`);
 
-    const ipCommand = `Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'; ID=1149; StartTime=(Get-Date).AddDays(-7);}` +
-    ` | ForEach-Object {
-          $userName = $_.Properties[0].Value
-          $ipAddressValue = $_.Properties[2].Value
-  
-          if (-not [string]::IsNullOrEmpty($userName) -and -not [string]::IsNullOrEmpty($ipAddressValue)) {
-              [PSCustomObject]@{
-                  Name = $userName
-                  IPAddress = $ipAddressValue
-                  TimeCreated = $_.TimeCreated
-              }
-          }
-      } | Sort-Object -Property IPAddress, SessionID -Unique | ConvertTo-Json -Compress`;
-  
-    console.log(`Executing PowerShell command on ${pc}: ${ipCommand}`);
+    // Removed IP address retrieval code block
 
-    const ipOutput = await executePowerShellCommand(`Invoke-Command -ComputerName ${pc} -ScriptBlock { ${ipCommand} }`);
-    console.log(`IP output:\n${ipOutput}`);
-
-    const ipSessions = JSON.parse(ipOutput);
-
-    console.log(`Parsed IP sessions: ${JSON.stringify(ipSessions, null, 2)}`);
-
-    const sessions = querySessions.map((querySession) => {
-      const matchingIPSession = ipSessions.find((ipSession) => {
-        return querySession.username.toLowerCase() === ipSession.Name.toLowerCase();
-      });
-  
-      if (matchingIPSession) {
-        return {
-          username: matchingIPSession.Name,
-          sessionName: querySession.sessionName,
-          sessionId: querySession.sessionId,
-          state: querySession.state,
-          ipAddress: matchingIPSession.IPAddress,
-          timeCreated: matchingIPSession.TimeCreated,
-        };
-      }
-  
-      return querySession;
-    });
-    
-
-
-
-    console.log(`Final sessions: ${JSON.stringify(sessions, null, 2)}`);
-    return sessions;
+    return querySessions;
   } catch (error) {
     console.error(`PowerShell error: ${error.message}`);
     throw error;
   }
 }
-
 
 module.exports = {
   executePowerShellCommand,

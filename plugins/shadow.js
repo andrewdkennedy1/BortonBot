@@ -62,25 +62,6 @@ function createSessionListCard(pc, sessions, state, context) {
         })),
       ],
     },
-    {
-      type: "Column",
-      width: "auto",
-      items: [
-        {
-          type: "TextBlock",
-          text: "IP Address",
-          weight: "bolder",
-        },
-        ...activeSessions.map(({ ipAddress }) => ({
-          type: "TextBlock",
-          text: ipAddress || "",
-        })),
-        ...disconnectedSessions.map(() => ({
-          type: "TextBlock",
-          text: "", // Placeholder for disconnected sessions
-        })),
-      ],
-    },
   ];
 
   return {
@@ -128,6 +109,7 @@ function createSessionListCard(pc, sessions, state, context) {
     channelData: state,
   };
 }
+
 
 async function init(botbuilder) {
   const onTurn = async (context) => {
